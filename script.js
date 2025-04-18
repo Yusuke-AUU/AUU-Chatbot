@@ -82,6 +82,12 @@ function showForm() {
     input.id = f.id;
     input.className = "form-input";
     input.placeholder = f.label;
+    if (f.id === "message") {
+      input.addEventListener("input", () => {
+        input.style.height = "auto";
+        input.style.height = input.scrollHeight + "px";
+      });
+    }
     chatBody.appendChild(input);
   });
 

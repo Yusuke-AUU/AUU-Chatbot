@@ -143,3 +143,10 @@ input.form-input {
   line-height: 1.4;
   background-color: #fff;
 }
+
+textarea.form-input {
+  height: auto;
+  min-height: 4em;
+  resize: none;
+  overflow: hidden;
+}
