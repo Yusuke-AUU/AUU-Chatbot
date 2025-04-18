@@ -104,3 +104,13 @@ textarea#message {
   height: 4em;
   resize: vertical;
 }
+
+textarea.form-input {
+  height: 4em;
+  resize: vertical;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}

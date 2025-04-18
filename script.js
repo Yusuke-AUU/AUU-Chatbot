@@ -80,6 +80,7 @@ function showForm() {
   fields.forEach(f => {
     const input = document.createElement(f.type === "textarea" ? "textarea" : "input");
     input.id = f.id;
+    input.className = "form-input";
     input.placeholder = f.label;
     chatBody.appendChild(input);
   });
