@@ -96,7 +96,7 @@ function submitForm() {
     email: document.getElementById("email").value
   };
 
-  fetch("https://script.google.com/macros/s/YOUR_GAS_URL_HERE/exec", {
+fetch("https://script.google.com/macros/s/AKfycbzf9XsoQEHH3eI8tANCvdJoPzynzXwJCyeXMLwih5Teh96s_3oIQGJyeriYmhJIJalR/exec", {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "application/json" },
