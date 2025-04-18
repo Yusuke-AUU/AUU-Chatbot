@@ -114,3 +114,17 @@ textarea.form-input {
   width: 100%;
   box-sizing: border-box;
 }
+
+/* 最終調整 */
+textarea.form-input {
+  height: 4em;
+  resize: vertical;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 1em;
+  outline: none;
+}
