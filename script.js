@@ -108,7 +108,7 @@ function submitForm() {
     email: document.getElementById("email").value
   };
 
-fetch("https://script.google.com/macros/s/AKfycbzoZXeSOZnyOKMYjjSaoQYx_ElLCwKyImjjfh_6JWRbpgboejld2WHdtbS9FHaRpZdT/exec", {
+fetch("https://script.google.com/macros/s/AKfycbyybXXeYVJvO5fzf7EnfAT2bpivwOBSHdzwAFfMWKsv_IJZA-nNOjlXoeS5o7K2H1LQ/exec", {
     method: "POST",
     
     headers: { "Content-Type": "application/json" },
