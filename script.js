@@ -108,9 +108,7 @@ function submitForm() {
     email: document.getElementById("email").value
   };
 
-  sendToGAS(payload);
-
-  fetch("https://script.google.com/macros/s/AKfycbzFpGfrUcR8rP6LGGjqU9lE6yZC--Kay6mHwwoA3bu6qB2HCCMEthkYfS-1e_9qRgim/exec", {
+fetch("https://script.google.com/macros/s/AKfycbzFpGfrUcR8rP6LGGjqU9lE6yZC--Kay6mHwwoA3bu6qB2HCCMEthkYfS-1e_9qRgim/exec", {
     method: "POST",
     
     headers: { "Content-Type": "application/json" },
