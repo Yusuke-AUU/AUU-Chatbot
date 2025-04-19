@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>課題解決チャットサポート</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>AUU課題解決チャットボット</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button class="chat-launcher" onclick="startChat()">課題解決サポート</button>
-  <div class="chat-box" id="chatBox">
-    <div class="chat-body" id="chatBody"></div>
+  <div class="chat-container">
+    <div class="chat-box" id="chatBox">
+      <div class="bot-message">ご相談カテゴリを選んでください。</div>
+    </div>
+    <div class="button-container" id="categoryButtons">
+      <button onclick="selectCategory('後継者不在')">後継者不在</button>
+      <button onclick="selectCategory('貴収を考えている')">貴収を考えている</button>
+      <button onclick="selectCategory('第三者への承継を相談したい')">第三者への承継を相談したい</button>
+      <button onclick="selectCategory('その他のM&A・事業承継に関すること')">その他のM&A・事業承継に関すること</button>
+    </div>
+    <form id="consultationForm" style="display:none;">
+      <textarea id="message" placeholder="ご相談内容"></textarea>
+      <input type="text" id="company" placeholder="会社名">
+      <input type="text" id="name" placeholder="お名前">
+      <input type="email" id="email" placeholder="メールアドレス">
+      <button type="submit">送信する</button>
+    </form>
   </div>
   <script src="script.js"></script>
 </body>
