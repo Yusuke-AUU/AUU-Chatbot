@@ -108,12 +108,12 @@ function submitForm() {
     email: document.getElementById("email").value
   };
 
-const formData = new URLSearchParams();
+  const formData = new URLSearchParams();
   for (const key in payload) {
     formData.append(key, payload[key]);
   }
 
-  fetch("https://script.google.com/macros/s/AKfycbwdf6QyNMTEpyaaPy284rMnPjZKDg-P3X2gapTglvjdiemoXwVzc1lzcfhmhaUPzcZc/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzJOLwUDFkXSyrTzGbmcHAkoDr_UgtYIwtaDqwdQSrKdcmEbp6QLd4msbSAbhFGidIi/exec", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded"
@@ -121,11 +121,14 @@ const formData = new URLSearchParams();
     body: formData.toString()
   });
 
-  typeMessage("ありがとうございます！内容を確認し、担当よりご連絡いたします。\n私たちは、貴社の益々の発展を応援しております！\n引き続きよろしくお願いいたします。", () => {
+  typeMessage("ありがとうございます！内容を確認し、担当よりご連絡いたします。
+私たちは、貴社の益々の発展を応援しております！
+引き続きよろしくお願いいたします。", () => {
     const restart = document.createElement("button");
     restart.textContent = "🔁 もう一度相談する";
     restart.className = "restart-button";
     restart.onclick = startChat;
     chatBody.appendChild(restart);
   });
+});
 }
