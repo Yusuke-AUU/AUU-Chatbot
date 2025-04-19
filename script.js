@@ -1,4 +1,3 @@
-
 function scrollToBottom() {
   chatBody.scrollTop = chatBody.scrollHeight;
 }
@@ -108,14 +107,16 @@ function submitForm() {
     email: document.getElementById("email").value
   };
 
-fetch("https://script.google.com/macros/s/AKfycbzf9XsoQEHH3eI8tANCvdJoPzynzXwJCyeXMLwih5Teh96s_3oIQGJyeriYmhJIJalR/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxN8FTZ7xNGWazi-lAZIF8nKoU2_E2VjUS-_HasDFxJy_5rewyQb1quqgyhNaTKHDSD/exec", {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
   });
 
-  typeMessage("ありがとうございます！内容を確認し、担当よりご連絡いたします。\n私たちは、貴社の益々の発展を応援しております！\n引き続きよろしくお願いいたします。", () => {
+  typeMessage("ありがとうございます！内容を確認し、担当よりご連絡いたします。
+私たちは、貴社の益々の発展を応援しております！
+引き続きよろしくお願いいたします。", () => {
     const restart = document.createElement("button");
     restart.textContent = "🔁 もう一度相談する";
     restart.className = "restart-button";
