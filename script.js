@@ -2,8 +2,12 @@
 function scrollToBottom() {
   chatBody.scrollTop = chatBody.scrollHeight;
 }
-const chatBox = document.getElementById("chatBox");
-const chatBody = document.getElementById("chatBody");
+document.addEventListener("DOMContentLoaded", () => {
+  const chatBox = document.getElementById("chatBox");
+  const chatBody = document.getElementById("chatBody");
+  window.chatBox = chatBox;
+  window.chatBody = chatBody;
+});
 
 const categories = {
   "M&A・事業承継": ["後継者不在で悩んでいる", "会社の売却を検討している", "買収を考えている", "第三者への承継を相談したい", "その他のM&A・事業承継に関すること"],
