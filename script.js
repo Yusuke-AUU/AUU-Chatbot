@@ -2,12 +2,8 @@
 function scrollToBottom() {
   chatBody.scrollTop = chatBody.scrollHeight;
 }
-document.addEventListener("DOMContentLoaded", () => {
-  const chatBox = document.getElementById("chatBox");
-  const chatBody = document.getElementById("chatBody");
-  window.chatBox = chatBox;
-  window.chatBody = chatBody;
-});
+const chatBox = document.getElementById("chatBox");
+const chatBody = document.getElementById("chatBody");
 
 const categories = {
   "M&A・事業承継": ["後継者不在で悩んでいる", "会社の売却を検討している", "買収を考えている", "第三者への承継を相談したい", "その他のM&A・事業承継に関すること"],
@@ -112,22 +108,14 @@ function submitForm() {
     email: document.getElementById("email").value
   };
 
-  const formData = new URLSearchParams();
-  for (const key in payload) {
-    formData.append(key, payload[key]);
-  }
-
-  fetch("https://script.google.com/macros/s/AKfycbwdf6QyNMTEpyaaPy284rMnPjZKDg-P3X2gapTglvjdiemoXwVzc1lzcfhmhaUPzcZc/exec", {
+fetch("https://script.google.com/macros/s/AKfycbwdf6QyNMTEpyaaPy284rMnPjZKDg-P3X2gapTglvjdiemoXwVzc1lzcfhmhaUPzcZc/exec", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded"
-    },
-    body: formData.toString()
+    
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
   });
 
-  typeMessage("ありがとうございます！内容を確認し、担当よりご連絡いたします。
-私たちは、貴社の益々の発展を応援しております！
-引き続きよろしくお願いいたします。", () => {
+  typeMessage("ありがとうございます！内容を確認し、担当よりご連絡いたします。\n私たちは、貴社の益々の発展を応援しております！\n引き続きよろしくお願いいたします。", () => {
     const restart = document.createElement("button");
     restart.textContent = "🔁 もう一度相談する";
     restart.className = "restart-button";
