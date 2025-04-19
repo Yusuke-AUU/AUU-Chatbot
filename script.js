@@ -6,7 +6,11 @@ function selectCategory(category) {
   document.getElementById("consultationForm").style.display = "block";
 
   const chatBox = document.getElementById("chatBox");
-  chatBox.innerHTML += `<div class='bot-message'>承知しました！お役に立てるかもしれません！具体的なご相談内容の入力をお願いします！</div>`;
+  chatBox.innerHTML += `
+    <div class='bot-message'>
+      <img src='tanaka-photo.png' class='bot-icon' />
+      承知しました！お役に立てるかもしれません！具体的なご相談内容の入力をお願いします！
+    </div>`;
 }
 
 document.getElementById("consultationForm").addEventListener("submit", function(e) {
@@ -28,7 +32,11 @@ document.getElementById("consultationForm").addEventListener("submit", function(
   })
   .then(response => {
     const chatBox = document.getElementById("chatBox");
-    chatBox.innerHTML += `<div class='bot-message'>ありがとうございます！内容を確認し、担当よりご連絡いたします。私たちは、貴社の益々の発展を応援しております！引き続きよろしくお願いいたします。</div>`;
+    chatBox.innerHTML += `
+      <div class='bot-message'>
+        <img src='tanaka-photo.png' class='bot-icon' />
+        ありがとうございます！内容を確認し、担当よりご連絡いたします。私たちは、貴社の益々の発展を応援しております！引き続きよろしくお願いいたします。
+      </div>`;
     document.getElementById("consultationForm").reset();
     document.getElementById("consultationForm").style.display = "none";
   })
