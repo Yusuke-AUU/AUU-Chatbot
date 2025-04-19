@@ -2,32 +2,15 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AUUチャットボット</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>課題解決チャットサポート</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="chat-container">
-    <div class="chat-box" id="chat-box">
-      <div class="bot-message">
-        <img src="tanaka-photo.png" alt="Bot" class="bot-icon" />
-        <div class="message">こんにちは！ご相談のカテゴリを選んでください👇</div>
-      </div>
-    </div>
-
-    <div class="form-section">
-      <select id="category">
-        <option value="" disabled selected>カテゴリを選択</option>
-        <option value="営業相談">営業相談</option>
-        <option value="トランポリン教育">トランポリン教育</option>
-        <option value="その他">その他</option>
-      </select>
-
-      <input type="text" id="message" placeholder="メッセージを入力..." />
-      <button onclick="sendMessage()">送信</button>
-    </div>
+  <button class="chat-launcher" onclick="startChat()">課題解決サポート</button>
+  <div class="chat-box" id="chatBox">
+    <div class="chat-body" id="chatBody"></div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
