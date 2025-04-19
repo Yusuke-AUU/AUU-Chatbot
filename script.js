@@ -1,3 +1,8 @@
+function startChat() {
+  document.getElementById("chat-window").style.display = "block";
+  document.getElementById("start-button").style.display = "none";
+}
+
 const form = document.getElementById("chat-form");
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
