@@ -108,6 +108,16 @@ function submitForm() {
     email: document.getElementById("email").value
   };
 
+
+  // LINE通知を送信
+  fetch("https://script.google.com/macros/s/AKfycbzf9XsoQEHH3eI8tANCvdJoPzynzXwJCyeXMLwih5Teh96s_3oIQGJyeriYmhJIJalR/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      category: formData.category || "未選択",
+      message: formData.message || "(未入力)"
+    })
+  });
+
 fetch("https://script.google.com/macros/s/AKfycbzf9XsoQEHH3eI8tANCvdJoPzynzXwJCyeXMLwih5Teh96s_3oIQGJyeriYmhJIJalR/exec", {
     method: "POST",
     
