@@ -1,4 +1,3 @@
-
 function scrollToBottom() {
   chatBody.scrollTop = chatBody.scrollHeight;
 }
@@ -123,3 +122,22 @@ fetch("https://script.google.com/macros/s/AKfycbzFpGfrUcR8rP6LGGjqU9lE6yZC--Kay6
     chatBody.appendChild(restart);
   });
 }
+
+
+function sendToGAS(data) {
+  fetch('https://script.google.com/macros/s/AKfycbx9_AHeK8NQyC6s4SrUJsFFFffnGKl7vKB1gthJrMPXPqR5jYdQPHDtFXfkmC3yMcJp/exec', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(result => {
+    console.log("Slack通知成功:", result);
+  })
+  .catch(error => {
+    console.error("Slack通知失敗:", error);
+  });
+}
+
