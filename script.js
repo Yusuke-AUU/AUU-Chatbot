@@ -1,3 +1,4 @@
+
 function scrollToBottom() {
   chatBody.scrollTop = chatBody.scrollHeight;
 }
@@ -107,7 +108,9 @@ function submitForm() {
     email: document.getElementById("email").value
   };
 
-fetch("https://script.google.com/macros/s/AKfycbzFpGfrUcR8rP6LGGjqU9lE6yZC--Kay6mHwwoA3bu6qB2HCCMEthkYfS-1e_9qRgim/exec", {
+  sendToGAS(payload);
+
+  fetch("https://script.google.com/macros/s/AKfycbzFpGfrUcR8rP6LGGjqU9lE6yZC--Kay6mHwwoA3bu6qB2HCCMEthkYfS-1e_9qRgim/exec", {
     method: "POST",
     
     headers: { "Content-Type": "application/json" },
@@ -122,22 +125,3 @@ fetch("https://script.google.com/macros/s/AKfycbzFpGfrUcR8rP6LGGjqU9lE6yZC--Kay6
     chatBody.appendChild(restart);
   });
 }
-
-
-function sendToGAS(data) {
-  fetch('https://script.google.com/macros/s/AKfycbxaCgGR2KvI_4OgB2rQyeo4AhnrUu8I-tDi3HpZ0QzP4frmcq-itqZVOCz1C7QPB71L/exec', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  .then(res => res.json())
-  .then(result => {
-    console.log("Slack通知 成功:", result);
-  })
-  .catch(error => {
-    console.error("Slack通知 失敗:", error);
-  });
-}
-
