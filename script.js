@@ -21,8 +21,8 @@ let selectedSubcategory = "";
 function startChat() {
   chatBox.style.display = "flex";
   chatBody.innerHTML = "";
-  typeMessage("こんにちは！課題解決サポートチャットです 😊", () => {
-    typeMessage("今日はどのようなご相談でしょうか？お気軽にご相談ください！", () => {
+  typeMessage("こんにちは！\n課題解決サポートチャットです 😊", () => {
+    typeMessage("このチャットでは、あなたの「経営に関する悩み・気になること」を整理し、\n例えば専門家のご紹介など最適な支援をご案内できます！\n\n✔ ご相談＆専門家の紹介は完全無料です！\n✔ チャットボット×人（チームAUU）で最適な対応をします！\n✔ 話すだけで、課題の整理ができます！\n\nまずは以下から、気になる分野を選んでみてください 😊", () => {
       Object.keys(categories).forEach(cat => {
         const btn = document.createElement("button");
         btn.className = "category-button";
@@ -46,12 +46,12 @@ function typeMessage(text, callback) {
       clearInterval(interval);
       if (callback) callback();
     }
-  }, 30);
+  }, 60);
 }
 
 function handleCategory(cat) {
   selectedCategory = cat;
-  typeMessage("ありがとうございます！もう少し詳しく教えてください😊", () => {
+  typeMessage("ありがとうございます！もう少し詳しく教えてください😊 ↓", () => {
     categories[cat].forEach(sub => {
       const btn = document.createElement("button");
       btn.className = "subcategory-button";
@@ -64,17 +64,17 @@ function handleCategory(cat) {
 
 function handleSubcategory(sub) {
   selectedSubcategory = sub;
-  typeMessage("承知しました！お役に立てるかもしれません！具体的なご相談内容の入力をお願いします！", () => {
+  typeMessage("承知しました！お役に立てるかもしれません！具体的なご相談内容の入力をお願いします！ ↓", () => {
     showForm();
   });
 }
 
 function showForm() {
   const fields = [
-    { id: "message", label: "ご相談内容", type: "textarea" },
-    { id: "company", label: "会社名", type: "text" },
-    { id: "name", label: "お名前", type: "text" },
-    { id: "email", label: "メールアドレス", type: "email" }
+    { id: "message", label: "ご相談内容*", type: "textarea" },
+    { id: "company", label: "会社名*", type: "text" },
+    { id: "name", label: "お名前*", type: "text" },
+    { id: "email", label: "メールアドレス*", type: "email" }
   ];
 
   fields.forEach(f => {
@@ -99,6 +99,15 @@ function showForm() {
 }
 
 function submitForm() {
+  const requiredFields = ["message", "company", "name", "email"];
+  for (let id of requiredFields) {
+    const val = document.getElementById(id).value.trim();
+    if (!val) {
+      alert("すべての項目を入力してください。");
+      return;
+    }
+  }
+
   const payload = {
     category: selectedCategory,
     subcategory: selectedSubcategory,
@@ -123,3 +132,6 @@ fetch("https://script.google.com/macros/s/AKfycbxN8FTZ7xNGWazi-lAZIF8nKoU2_E2VjU
     chatBody.appendChild(restart);
   });
 }
+
+
+window.onload = startChat;
